@@ -138,6 +138,7 @@ class MainActivity : AppCompatActivity() {
     private fun userNameAndUserPwAreNotEmpty(strUserNameToCheck:String,strUserPwToCheck:String): Boolean {
         return(strUserNameToCheck.isNotEmpty()) && (strUserPwToCheck.isNotEmpty())
     }
+    //endregion
 
     //region 5. Neue Views generieren
     /**
