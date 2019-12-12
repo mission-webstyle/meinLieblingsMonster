@@ -49,8 +49,6 @@ class MainActivity : AppCompatActivity() {
         this.txtUserPw = this.findViewById(R.id.txtUserPw)
         this.btnLogIn = this.findViewById(R.id.btnLogIn)
 
-        this.generateANewButtonWithOutAXmlDefiniton()
-
         //3. Setzen der Toolbar
         setSupportActionBar(this.mainToolbar)
 
@@ -84,21 +82,27 @@ class MainActivity : AppCompatActivity() {
 
 
     //region 3. MenuHandling
+
+    /**
+     * Generiert das Menu dynamisch zur Laufzeit
+     * ueber einen speziellen LayoutInflater nur fuer
+     * Menus; den geerbten MenuInflater
+     * @return true = Menu anzeigen | false = Menu nicht anzeigen
+     */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
+        //Menu generieren
+        this.menuInflater.inflate(R.menu.main_activity_main_menu_layout, menu)
         return true
     }
 
     /**
      * Auswertung der Menuklicks
+     * Checken welches Item geklickt wurde und
+     * entsprechende Aktion einleiten
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
-            R.id.action_settings -> generateANewButtonWithOutAXmlDefiniton()
+            R.id.mnuItemGenerateAButtonWithoutAXmlDefinition -> generateANewButtonWithOutAXmlDefiniton()
             else -> super.onOptionsItemSelected(item)
         }
 
@@ -119,7 +123,7 @@ class MainActivity : AppCompatActivity() {
         this.btnGenerateYourSelfWithOutXmlDefintion = Button(this)
 
         //Attribute setzen
-        this.btnGenerateYourSelfWithOutXmlDefintion.setText(R.string.strGeneratedItSelfText)
+        this.btnGenerateYourSelfWithOutXmlDefintion.setText(R.string.strGeneratedWithoutAXmlDefinition)
 
         //Anschreimodus textAllCaps deaktivieren
         this.btnGenerateYourSelfWithOutXmlDefintion.isAllCaps = false;

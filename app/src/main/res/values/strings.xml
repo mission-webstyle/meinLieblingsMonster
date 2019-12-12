@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Mein Lieblings Monster</string>
-    <string name="action_settings">Settings</string>
+    <string name="strGenerateANewButtonText">Generate a new Button please</string>
     <string name="strWelcomeMessageText">Welcome dear user:</string>
     <string name="strUserNameHint">Your user name</string>
     <string name="strUserNameMessage">Your entered user name is:</string>
@@ -8,6 +8,6 @@
     <string name="strUserPwHint">Password</string>
     <string name="strLogInText">Log in</string>
     <string name="strUserMessageFillInUserNameAndPw">Please fill in the username and the password</string>
-    <string name="strGeneratedItSelfText">I generated my self without a XML-Defintion</string>
+    <string name="strGeneratedWithoutAXmlDefinition">I was generated without a XML-Definition</string>
     <string name="strNewTextViewText">This is a new TextView because you clicked the new Button.</string>
 </resources>
