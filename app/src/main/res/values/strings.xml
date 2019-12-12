@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mein Lieblings Monster</string>
+    <string name="action_settings">Settings</string>
+    <string name="strWelcomeMessageText">Welcome dear user:</string>
+    <string name="strUserNameHint">Your user name</string>
+    <string name="strUserNameMessage">Your entered user name is:</string>
+</resources>

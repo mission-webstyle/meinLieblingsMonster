@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/main_activity_layout">
+
+    <TextView
+        android:id="@+id/txtvWelcomeMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/defaultMarginValue"
+        android:layout_marginLeft="@dimen/defaultMarginValue"
+        android:layout_marginTop="@dimen/defaultMarginValue"
+        android:layout_marginEnd="@dimen/defaultMarginValue"
+        android:layout_marginRight="@dimen/defaultMarginValue"
+        android:layout_marginBottom="@dimen/defaultMarginValue"
+        android:gravity="center"
+        android:text="@string/strWelcomeMessageText"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtInputUserName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/defaultMarginValue"
+        android:layout_marginLeft="@dimen/defaultMarginValue"
+        android:layout_marginTop="@dimen/defaultMarginValue"
+        android:layout_marginEnd="@dimen/defaultMarginValue"
+        android:layout_marginRight="@dimen/defaultMarginValue"
+        android:layout_marginBottom="@dimen/defaultMarginValue"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/strUserNameHint"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtvWelcomeMessage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
