@@ -4,14 +4,23 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
-import kotlinx.android.synthetic.main.main_activity_content_layout.*
-import kotlinx.android.synthetic.main.main_activity_layout.*
+import androidx.appcompat.widget.Toolbar
+
 
 /**
  * Einstiegspunkt in die App
  */
 class MainActivity : AppCompatActivity() {
+
+    //region 1. Decl. and Init Widgets und Attribute
+    private lateinit var mainToolbar: Toolbar
+    private lateinit var txtInputUserName: EditText
+    private lateinit var txtUserPw: EditText
+    private lateinit var btnLogIn: Button
+    //endregion
 
     //region 1 Lebenszyklus
 
@@ -25,24 +34,35 @@ class MainActivity : AppCompatActivity() {
         //1. Layout setzen
         this.setContentView(R.layout.main_activity_layout)
 
+        //2. Widgets generieren
+        this.mainToolbar = this.findViewById(R.id.mainToolbar)
+        this.btnLogIn = this.findViewById(R.id.btnLogIn)
+        this.txtInputUserName = this.findViewById(R.id.txtInputUserName)
+        this.txtUserPw = this.findViewById(R.id.txtUserPw)
+
         //2. Setzen der Toolbar
-        setSupportActionBar(mainToolbar)
+        setSupportActionBar(this.mainToolbar)
 
-        btnLogIn.setOnClickListener{
-            val strUserName = txtInputUserName.text.toString()
-            val strUserPw = txtUserPw.text.toString()
+        //3. Listener setzen
+        this.btnLogIn.setOnClickListener {
+            val strUserName = this.txtInputUserName.text.toString()
+            val strUserPw = this.txtUserPw.text.toString()
 
-            if((strUserName.isNotEmpty())&&(strUserPw.isNotEmpty())){
+            if ((strUserName.isNotEmpty()) && (strUserPw.isNotEmpty())) {
                 val strCredentialsMessage = getString(R.string.strUserCredentialsMessage) +
                         strUserName + " " + strUserPw
 
-                Toast.makeText(this,
+                Toast.makeText(
+                    this,
                     strCredentialsMessage,
-                    Toast.LENGTH_LONG).show()
-            }else{
-                Toast.makeText(this,
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                Toast.makeText(
+                    this,
                     R.string.strUserMessageFillInUserNameAndPw,
-                    Toast.LENGTH_LONG).show()
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
 
