@@ -8,4 +8,6 @@
     <string name="strUserPwHint">Password</string>
     <string name="strLogInText">Log in</string>
     <string name="strUserMessageFillInUserNameAndPw">Please fill in the username and the password</string>
+    <string name="strGeneratedItSelfText">I generated my self without a XML-Defintion</string>
+    <string name="strNewTextViewText">This is a new TextView because you clicked the new Button.</string>
 </resources>

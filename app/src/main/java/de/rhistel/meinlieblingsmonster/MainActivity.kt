@@ -6,8 +6,11 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.appcompat.widget.Toolbar
+import kotlinx.android.synthetic.main.main_activity_content_layout.view.*
 
 
 /**
@@ -17,9 +20,12 @@ class MainActivity : AppCompatActivity() {
 
     //region 1. Decl. and Init Widgets und Attribute
     private lateinit var mainToolbar: Toolbar
+    private lateinit var mainLayout: LinearLayoutCompat
+
     private lateinit var txtInputUserName: EditText
     private lateinit var txtUserPw: EditText
     private lateinit var btnLogIn: Button
+    private lateinit var btnGenerateYourSelfWithOutXmlDefintion: Button
     //endregion
 
     //region 2. Lebenszyklus
@@ -34,16 +40,22 @@ class MainActivity : AppCompatActivity() {
         //1. Layout setzen
         this.setContentView(R.layout.main_activity_layout)
 
-        //2. Widgets generieren
+        //2. Views generieren
         this.mainToolbar = this.findViewById(R.id.mainToolbar)
+
+        //Layout, welches die neue View beinhalten soll Layout muss im xml-layout eine id haben
+        this.mainLayout = this.findViewById(R.id.mainLayout)
+
         this.btnLogIn = this.findViewById(R.id.btnLogIn)
         this.txtInputUserName = this.findViewById(R.id.txtInputUserName)
         this.txtUserPw = this.findViewById(R.id.txtUserPw)
 
-        //2. Setzen der Toolbar
+        this.generateANewButtonWithOutAXmlDefiniton()
+
+        //3. Setzen der Toolbar
         setSupportActionBar(this.mainToolbar)
 
-        //3. Listener setzen
+        //4. Listener setzen
         this.btnLogIn.setOnClickListener {
             val strUserName = this.txtInputUserName.text.toString()
             val strUserPw = this.txtUserPw.text.toString()
@@ -71,7 +83,8 @@ class MainActivity : AppCompatActivity() {
 
     //endregion
 
-    //region 2. MenuHandling
+
+    //region 3. MenuHandling
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
@@ -87,5 +100,49 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-//endregion
+    //endregion
+
+    //region 4. Neue Views generieren
+    /**
+     * Generiert einene neuen Button der wenn er geklickt wird immer neue TextViews
+     * generiert.
+     */
+    private fun generateANewButtonWithOutAXmlDefiniton() {
+
+        //Objekt selbst generieren
+        this.btnGenerateYourSelfWithOutXmlDefintion = Button(this)
+
+        //Attribute setzen
+        this.btnGenerateYourSelfWithOutXmlDefintion.setText(R.string.strGeneratedItSelfText)
+        //Anschreibmodus textAllCaps deaktivieren
+        this.btnGenerateYourSelfWithOutXmlDefintion.isAllCaps = false;
+
+        /*
+         * Breite des Buttons auf die Breites des Elternlayotus setzen,
+         * Hoehe ist standardmaessig wrap_content
+         */
+        this.btnGenerateYourSelfWithOutXmlDefintion.width = mainLayout.width
+
+        //Dem Layout die View hinzufuegen
+        this.mainLayout.addView(this.btnGenerateYourSelfWithOutXmlDefintion)
+
+        //Dem Button noch einen Listener geben der selbst weitere TextViews generiert
+        this.btnGenerateYourSelfWithOutXmlDefintion.setOnClickListener{
+            addANewTextViewWithOutAXmlDefintions()
+        }
+    }
+
+    /**
+     * Generiert eine neue TextView und haengt diese unter den Button
+     */
+    private fun addANewTextViewWithOutAXmlDefintions(){
+        val txtvNewTextView = TextView(this).apply {
+            text = getString(R.string.strNewTextViewText)
+            textSize = 18f
+        }
+        this.mainLayout.addView(txtvNewTextView)
+
+    }
+
+    //endregion
 }
