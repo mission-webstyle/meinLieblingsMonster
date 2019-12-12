@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnLogIn: Button
     //endregion
 
-    //region 1 Lebenszyklus
+    //region 2. Lebenszyklus
 
     /**
      * Startet als erstes nach dem Konstruktor
