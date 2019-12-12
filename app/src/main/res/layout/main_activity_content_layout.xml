@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainLayout"
@@ -22,41 +21,63 @@
         android:textSize="36sp"
         android:textStyle="bold" />
 
+    <!--
+    Refectoring des Eingabefeldes fuer den Usernamen
+    Im LinearLayout linLayoutUserNamePw wurden zwei TextInputLayouts hinzugefuegt.
+    Jedes ist beannt und bekommt den gleich Platz innerhalb des linLayouts.
+    Beide TextInputLayouts enthalten die von EditText zu TextInputEditText
+    umgewandelten Eingabedeldern einmal fuer den Benutzernamen
+    und einmal fuer das Passwort
+    -->
     <LinearLayout
-        android:id="@+id/linLayoutLogInInfo"
+        android:id="@+id/linLayoutUserNamePw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/txtInputUserName"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutUserName"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="@string/strUserNameHint"
-            android:inputType="textPersonName"
-            android:importantForAutofill="no" />
+            android:layout_weight="1">
 
-        <EditText
-            android:id="@+id/txtUserPw"
-            android:layout_width="0dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/strUserNameHint"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutUserPw"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="@string/strUserPwHint"
-            android:inputType="textPassword"
-            android:importantForAutofill="no" />
+            android:layout_weight="1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtUserPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/strUserPwHint"
+                android:importantForAutofill="no"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <Button
         android:id="@+id/btnLogIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/strLogInText"
         android:onClick="logIn"
+        android:text="@string/strLogInText"
         android:textAllCaps="false" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

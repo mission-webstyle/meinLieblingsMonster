@@ -6,9 +6,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.main_activity_content_layout.*
 import kotlinx.android.synthetic.main.main_activity_layout.*
 
@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity() {
     //endregion
 
     //region 1. Decl. and Init Widgets und Attribute
-    private lateinit var txtInputUserName: EditText
-    private lateinit var txtUserPw: EditText
+    private lateinit var txtUserName: TextInputEditText
+    private lateinit var txtUserPw: TextInputEditText
     //endregion
 
     //region 2. Lebenszyklus
@@ -48,8 +48,8 @@ class MainActivity : AppCompatActivity() {
         this.setContentView(R.layout.main_activity_layout)
 
         //2. Widgets ohne synthetisches binding generieren
-        this.txtInputUserName = this.findViewById(R.id.txtInputUserName)
-        this.txtUserPw = this.findViewById(R.id.txtUserPw)
+        this.txtUserName = this.findViewById(R.id.txtUserName)
+        this.txtUserPw= this.findViewById(R.id.txtUserPassword)
 
         //3. Setzen der Toolbar
         this.setSupportActionBar(this.mainToolbar)
@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
      */
     fun logIn(v: View){
         if(v.id == R.id.btnLogIn){
-            val strUserName = txtInputUserName.text.toString()
+            val strUserName = txtUserName.text.toString()
             val strUserPw = txtUserPw.text.toString()
 
             if(userNameAndUserPwAreNotEmpty(strUserName,strUserPw)){
