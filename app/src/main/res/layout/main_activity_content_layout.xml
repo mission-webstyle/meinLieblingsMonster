@@ -10,6 +10,7 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/main_activity_layout">
 
+
     <TextView
         android:id="@+id/txtvWelcomeMessage"
         android:layout_width="match_parent"
