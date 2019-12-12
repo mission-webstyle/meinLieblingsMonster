@@ -8,6 +8,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.StringRes
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.main_activity_content_layout.*
 import kotlinx.android.synthetic.main.main_activity_layout.*
@@ -105,9 +107,7 @@ class MainActivity : AppCompatActivity() {
                 if(userCredentialsAreValid(strUserName,strUserPw)){
 
                     //UserMsg LogIn success
-                    Toast.makeText(this,
-                        R.string.strUserMessageYouAreLoggedInNow,
-                        Toast.LENGTH_LONG).show()
+                    this.showUserMessageWithSnackbar(v,R.string.strUserMessageYouAreLoggedInNow)
 
                     /**
                      * Anzeigen der in der
@@ -122,14 +122,14 @@ class MainActivity : AppCompatActivity() {
 
                 }else{
                     //UserMsg LogIn failed
-                    Toast.makeText(this,
-                        R.string.strUserMessageCredentialsAreNotValid,
-                        Toast.LENGTH_LONG).show()
+                    this.showUserMessageWithSnackbar(v,
+                        R.string.strUserMessageCredentialsAreNotValid)
+
                 }
             }else{
-                Toast.makeText(this,
-                    R.string.strUserMessageFillInUserNameAndPw,
-                    Toast.LENGTH_LONG).show()
+                //UserMsg Alles ausfuellen
+                this.showUserMessageWithSnackbar(v,
+                    R.string.strUserMessageFillInUserNameAndPw)
             }
 
 
@@ -149,6 +149,14 @@ class MainActivity : AppCompatActivity() {
      */
     private fun userNameAndUserPwAreNotEmpty(strUserNameToCheck:String,strUserPwToCheck:String): Boolean {
         return(strUserNameToCheck.isNotEmpty()) && (strUserPwToCheck.isNotEmpty())
+    }
+
+    /**
+     * Zeigt eine bestimmte Usernachricht
+     * auf der Snackbar an.
+     */
+    private fun showUserMessageWithSnackbar(v: View, @StringRes stringResourceId:Int){
+        Snackbar.make(v,stringResourceId,Snackbar.LENGTH_SHORT).show()
     }
     //endregion
 
