@@ -4,6 +4,8 @@
     <string name="strWelcomeMessageText">Welcome dear user:</string>
     <string name="strUserNameHint">Your user name</string>
     <string name="strUserNameMessage">Your entered user name is:</string>
+    <string name="strUserCredentialsMessage">Your entered user credentials are:</string>
     <string name="strUserPwHint">Password</string>
     <string name="strLogInText">Log in</string>
+    <string name="strUserMessageFillInUserNameAndPw">Please fill in the username and the password</string>
 </resources>

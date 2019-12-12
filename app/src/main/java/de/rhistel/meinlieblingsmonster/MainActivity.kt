@@ -1,12 +1,11 @@
 package de.rhistel.meinlieblingsmonster
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import kotlinx.android.synthetic.main.main_activity_content_layout.*
-
 import kotlinx.android.synthetic.main.main_activity_layout.*
 
 /**
@@ -28,6 +27,25 @@ class MainActivity : AppCompatActivity() {
 
         //2. Setzen der Toolbar
         setSupportActionBar(mainToolbar)
+
+        btnLogIn.setOnClickListener{
+            val strUserName = txtInputUserName.text.toString()
+            val strUserPw = txtUserPw.text.toString()
+
+            if((strUserName.isNotEmpty())&&(strUserPw.isNotEmpty())){
+                val strCredentialsMessage = getString(R.string.strUserCredentialsMessage) +
+                        strUserName + " " + strUserPw
+
+                Toast.makeText(this,
+                    strCredentialsMessage,
+                    Toast.LENGTH_LONG).show()
+            }else{
+                Toast.makeText(this,
+                    R.string.strUserMessageFillInUserNameAndPw,
+                    Toast.LENGTH_LONG).show()
+            }
+        }
+
 
     }
 
