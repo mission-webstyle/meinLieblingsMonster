@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mein Lieblings Monster</string>
+    <string name="strDefaultWelcomeMessageText">Willkommen verehrter Nutzer</string>
+    <string name="strGenerateANewButtonText">Generiere bitte einen neuen Button</string>
+    <string name="strGeneratedWithoutAXmlDefinition">Ich wurde ohne eine XML-Definition generiert</string>
+    <string name="strLogInText">Anmelden</string>
+    <string name="strNewTextViewText">Das ist eine neue TextView, weil Sie den neuen Button angeklickt haben</string>
+    <string name="strUserMessageCredentialsAreNotValid">Anmeldedaten sind falsch</string>
+    <string name="strUserMessageFillInUserNameAndPw">Bitte füllen Sie Benutzername und Passwort aus</string>
+    <string name="strUserMessageYouAreLoggedInNow">Sie sind nun angemeldet</string>
+    <string name="strUserNameHint">Ihr Benutztername</string>
+    <string name="strUserPwHint">Ihr Passwort</string>
+    <string name="strUserSpecificWelcomeMessage">Willkommen %s</string>
+</resources>

@@ -108,6 +108,18 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this,
                         R.string.strUserMessageYouAreLoggedInNow,
                         Toast.LENGTH_LONG).show()
+
+                    /**
+                     * Anzeigen der in der
+                     * res/values/strings.xml definierten,
+                     * benutzerspezifischen Willkommensnachricht mit
+                     * Platzhalter
+                     */
+                    this.txtvWelcomeMessage.text = this.getString(
+                            R.string.strUserSpecificWelcomeMessage,
+                            strUserName
+                    )
+
                 }else{
                     //UserMsg LogIn failed
                     Toast.makeText(this,

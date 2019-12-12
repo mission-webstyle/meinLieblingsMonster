@@ -17,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/strWelcomeMessageText"
+        android:text="@string/strDefaultWelcomeMessageText"
+        android:textColor="@color/design_default_color_primary"
         android:textSize="36sp"
         android:textStyle="bold" />
 
@@ -35,7 +36,8 @@
             android:ems="10"
             android:gravity="center"
             android:hint="@string/strUserNameHint"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/txtUserPw"
@@ -45,7 +47,8 @@
             android:ems="10"
             android:gravity="center"
             android:hint="@string/strUserPwHint"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:importantForAutofill="no" />
     </LinearLayout>
 
     <Button

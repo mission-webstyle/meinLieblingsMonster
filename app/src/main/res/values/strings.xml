@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">Mein Lieblings Monster</string>
+    <string name="app_name">My favorite monster</string>
     <string name="strGenerateANewButtonText">Generate a new Button please</string>
-    <string name="strWelcomeMessageText">Welcome dear user</string>
+    <string name="strDefaultWelcomeMessageText">Welcome dear user</string>
+    <string name="strUserSpecificWelcomeMessage">Welcome %s</string>
     <string name="strUserNameHint">Your user name</string>
     <string name="strUserPwHint">Your password</string>
     <string name="strLogInText">Log in</string>
