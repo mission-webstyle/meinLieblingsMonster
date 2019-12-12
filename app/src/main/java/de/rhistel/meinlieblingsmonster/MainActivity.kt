@@ -10,7 +10,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.appcompat.widget.Toolbar
-import kotlinx.android.synthetic.main.main_activity_content_layout.view.*
 
 
 /**
@@ -46,9 +45,9 @@ class MainActivity : AppCompatActivity() {
         //Layout, welches die neue View beinhalten soll Layout muss im xml-layout eine id haben
         this.mainLayout = this.findViewById(R.id.mainLayout)
 
-        this.btnLogIn = this.findViewById(R.id.btnLogIn)
         this.txtInputUserName = this.findViewById(R.id.txtInputUserName)
         this.txtUserPw = this.findViewById(R.id.txtUserPw)
+        this.btnLogIn = this.findViewById(R.id.btnLogIn)
 
         this.generateANewButtonWithOutAXmlDefiniton()
 
@@ -91,18 +90,25 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    /**
+     * Auswertung der Menuklicks
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
+        when (item.itemId) {
+            R.id.action_settings -> generateANewButtonWithOutAXmlDefiniton()
             else -> super.onOptionsItemSelected(item)
         }
+
+        return true;
     }
     //endregion
 
-    //region 4. Neue Views generieren
+    //region 4. ClickHandling
+
+    //region 5. Neue Views generieren
     /**
      * Generiert einene neuen Button der wenn er geklickt wird immer neue TextViews
      * generiert.
@@ -114,7 +120,8 @@ class MainActivity : AppCompatActivity() {
 
         //Attribute setzen
         this.btnGenerateYourSelfWithOutXmlDefintion.setText(R.string.strGeneratedItSelfText)
-        //Anschreibmodus textAllCaps deaktivieren
+
+        //Anschreimodus textAllCaps deaktivieren
         this.btnGenerateYourSelfWithOutXmlDefintion.isAllCaps = false;
 
         /*
@@ -128,14 +135,14 @@ class MainActivity : AppCompatActivity() {
 
         //Dem Button noch einen Listener geben der selbst weitere TextViews generiert
         this.btnGenerateYourSelfWithOutXmlDefintion.setOnClickListener{
-            addANewTextViewWithOutAXmlDefintions()
+            this.addANewTextViewWithOutAXmlDefintion()
         }
     }
 
     /**
      * Generiert eine neue TextView und haengt diese unter den Button
      */
-    private fun addANewTextViewWithOutAXmlDefintions(){
+    private fun addANewTextViewWithOutAXmlDefintion(){
         val txtvNewTextView = TextView(this).apply {
             text = getString(R.string.strNewTextViewText)
             textSize = 18f
