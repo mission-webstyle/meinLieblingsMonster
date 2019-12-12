@@ -1,49 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/main_activity_layout">
 
     <TextView
         android:id="@+id/txtvWelcomeMessage"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/defaultMarginValue"
-        android:layout_marginLeft="@dimen/defaultMarginValue"
-        android:layout_marginTop="@dimen/defaultMarginValue"
-        android:layout_marginEnd="@dimen/defaultMarginValue"
-        android:layout_marginRight="@dimen/defaultMarginValue"
-        android:layout_marginBottom="@dimen/defaultMarginValue"
         android:gravity="center"
         android:text="@string/strWelcomeMessageText"
         android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/txtInputUserName"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/linLayoutLogInInfo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/defaultMarginValue"
-        android:layout_marginLeft="@dimen/defaultMarginValue"
-        android:layout_marginTop="@dimen/defaultMarginValue"
-        android:layout_marginEnd="@dimen/defaultMarginValue"
-        android:layout_marginRight="@dimen/defaultMarginValue"
-        android:layout_marginBottom="@dimen/defaultMarginValue"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="@string/strUserNameHint"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtvWelcomeMessage" />
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/txtInputUserName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/strUserNameHint"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/txtUserPw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/strUserPwHint"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/strLogInText"
+        android:textAllCaps="false" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

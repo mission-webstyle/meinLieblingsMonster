@@ -29,17 +29,6 @@ class MainActivity : AppCompatActivity() {
         //2. Setzen der Toolbar
         setSupportActionBar(mainToolbar)
 
-        //3. Fab Button mit Listener belegen
-        this.fabSaveUserName.setOnClickListener() {
-            val strUserName = txtInputUserName.text.toString()
-
-            if(strUserName.isNotEmpty()) {
-                val strUserNameMessage = getString(R.string.strUserNameMessage) + " " + strUserName
-
-                Snackbar.make(it, strUserNameMessage, Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-            }
-        }
     }
 
     //endregion
