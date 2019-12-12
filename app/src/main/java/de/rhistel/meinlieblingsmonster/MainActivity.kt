@@ -13,7 +13,11 @@ import androidx.appcompat.widget.Toolbar
 
 
 /**
- * Einstiegspunkt in die App
+ * Einstiegspunkt in die App.
+ * Diese Klasse zeigt sythetisches View Binding
+ * normale generierung von Widgets ueber findViewById
+ * sowie die Erstellung von Menus und die Klickauswertung
+ * der MenuItems
  */
 class MainActivity : AppCompatActivity() {
 
