@@ -4,12 +4,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.widget.LinearLayoutCompat
-import androidx.appcompat.widget.Toolbar
+import kotlinx.android.synthetic.main.main_activity_content_layout.*
+import kotlinx.android.synthetic.main.main_activity_layout.*
 
 
 /**
@@ -21,14 +22,17 @@ import androidx.appcompat.widget.Toolbar
  */
 class MainActivity : AppCompatActivity() {
 
-    //region 1. Decl. and Init Widgets und Attribute
-    private lateinit var mainToolbar: Toolbar
-    private lateinit var mainLayout: LinearLayoutCompat
 
+    //region 0. Konstanten
+    companion object MainActivityConstants{
+        private const val TEST_USER_NAME = "Shrek"
+        private const val TEST_USER_PW = "fiona"
+    }
+    //endregion
+
+    //region 1. Decl. and Init Widgets und Attribute
     private lateinit var txtInputUserName: EditText
     private lateinit var txtUserPw: EditText
-    private lateinit var btnLogIn: Button
-    private lateinit var btnGenerateYourSelfWithOutXmlDefinition: Button
     //endregion
 
     //region 2. Lebenszyklus
@@ -43,42 +47,12 @@ class MainActivity : AppCompatActivity() {
         //1. Layout setzen
         this.setContentView(R.layout.main_activity_layout)
 
-        //2. Views generieren
-        this.mainToolbar = this.findViewById(R.id.mainToolbar)
-
-        //Layout, welches die neue View beinhalten soll Layout muss im xml-layout eine id haben
-        this.mainLayout = this.findViewById(R.id.mainLayout)
-
+        //2. Widgets ohne synthetisches binding generieren
         this.txtInputUserName = this.findViewById(R.id.txtInputUserName)
         this.txtUserPw = this.findViewById(R.id.txtUserPw)
-        this.btnLogIn = this.findViewById(R.id.btnLogIn)
 
         //3. Setzen der Toolbar
-        setSupportActionBar(this.mainToolbar)
-
-        //4. Listener setzen
-        this.btnLogIn.setOnClickListener {
-            val strUserName = this.txtInputUserName.text.toString()
-            val strUserPw = this.txtUserPw.text.toString()
-
-            if ((strUserName.isNotEmpty()) && (strUserPw.isNotEmpty())) {
-                val strCredentialsMessage = getString(R.string.strUserCredentialsMessage) +
-                        strUserName + " " + strUserPw
-
-                Toast.makeText(
-                    this,
-                    strCredentialsMessage,
-                    Toast.LENGTH_LONG
-                ).show()
-            } else {
-                Toast.makeText(
-                    this,
-                    R.string.strUserMessageFillInUserNameAndPw,
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-        }
-
+        this.setSupportActionBar(this.mainToolbar)
 
     }
 
@@ -106,7 +80,7 @@ class MainActivity : AppCompatActivity() {
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.mnuItemGenerateAButtonWithoutAXmlDefinition -> generateANewButtonWithOutAXmlDefiniton()
+            R.id.mnuItemGenerateAButtonWithoutAXmlDefinition -> generateANewButtonWithOutAXmlDefinition()
             else -> super.onOptionsItemSelected(item)
         }
 
@@ -116,48 +90,92 @@ class MainActivity : AppCompatActivity() {
 
     //region 4. ClickHandling
 
+    /**
+     * Springt an wenn der LogIn-Button geklickt wird.
+     * Diese Methode ist durch den ID-Check schon vorbereitet
+     * sollten weitere Buttons hinzukommen, ein Registrierungsbutton
+     * zum Beispiel
+     */
+    fun logIn(v: View){
+        if(v.id == R.id.btnLogIn){
+            val strUserName = txtInputUserName.text.toString()
+            val strUserPw = txtUserPw.text.toString()
+
+            if(userNameAndUserPwAreNotEmpty(strUserName,strUserPw)){
+                if(userCredentialsAreValid(strUserName,strUserPw)){
+
+                    //UserMsg LogIn success
+                    Toast.makeText(this,
+                        R.string.strUserMessageYouAreLoggedInNow,
+                        Toast.LENGTH_LONG).show()
+                }else{
+                    //UserMsg LogIn failed
+                    Toast.makeText(this,
+                        R.string.strUserMessageCredentialsAreNotValid,
+                        Toast.LENGTH_LONG).show()
+                }
+            }else{
+                Toast.makeText(this,
+                    R.string.strUserMessageFillInUserNameAndPw,
+                    Toast.LENGTH_LONG).show()
+            }
+
+
+        }
+    }
+
+    /**
+     * Checkt ob die LogIn-Daten richtig sind
+     */
+    private fun userCredentialsAreValid(strUserName: String, strUserPw: String): Boolean {
+        return((strUserName.contentEquals(TEST_USER_NAME))&&
+                strUserPw.contentEquals(TEST_USER_PW))
+    }
+
+    /**
+     * Checkt ob alle Eingabefelder ausgefuellt wurden
+     */
+    private fun userNameAndUserPwAreNotEmpty(strUserNameToCheck:String,strUserPwToCheck:String): Boolean {
+        return(strUserNameToCheck.isNotEmpty()) && (strUserPwToCheck.isNotEmpty())
+    }
+
     //region 5. Neue Views generieren
     /**
      * Generiert einene neuen Button der wenn er geklickt wird immer neue TextViews
      * generiert.
      */
-    private fun generateANewButtonWithOutAXmlDefiniton() {
-
-        //Objekt selbst generieren
-        this.btnGenerateYourSelfWithOutXmlDefinition = Button(this)
-
-        //Attribute setzen
-        this.btnGenerateYourSelfWithOutXmlDefinition.setText(R.string.strGeneratedWithoutAXmlDefinition)
-
-        //Anschreimodus textAllCaps deaktivieren
-        this.btnGenerateYourSelfWithOutXmlDefinition.isAllCaps = false;
+    private fun generateANewButtonWithOutAXmlDefinition() {
 
         /*
-         * Breite des Buttons auf die Breites des Elternlayotus setzen,
-         * Hoehe ist standardmaessig wrap_content
+         * Hier fand eine Quellcodeoptimierung statt:
+         * Das mainLayout wird durch synthetisches Binding
+         * generiert und fuegt direkt mit addView einen neue Button hinzu.
+         *
+         * Es ist jedoch immer noch die selbe Reihenfolge
+         * 1. Textsetzen
+         * 2. Die breite des neuen Buttons auf die Breite des Layouts setzen
+         *    die height bleibt standardmaessig auf wrap_content
+         * 3. Setzen des Listeners
          */
-        this.btnGenerateYourSelfWithOutXmlDefinition.width = mainLayout.width
+        this.mainLayout.addView(Button(this).apply {
+            setText(R.string.strGeneratedWithoutAXmlDefinition)
+            isAllCaps = false;
+            width = mainLayout.width
+            setOnClickListener{addANewTextViewWithOutAXmlDefintion()}
+        })
 
-        //Dem Layout die View hinzufuegen
-        this.mainLayout.addView(this.btnGenerateYourSelfWithOutXmlDefinition)
-
-        //Dem Button noch einen Listener geben der selbst weitere TextViews generiert
-        this.btnGenerateYourSelfWithOutXmlDefinition.setOnClickListener{
-            this.addANewTextViewWithOutAXmlDefintion()
-        }
     }
 
     /**
      * Generiert eine neue TextView und haengt diese unter den Button
+     * Setzt einen Text und die Schriftgroesse auf 18sp
      */
     private fun addANewTextViewWithOutAXmlDefintion(){
-        val txtvNewTextView = TextView(this).apply {
-            text = getString(R.string.strNewTextViewText)
+        this.mainLayout.addView(TextView(this).apply {
+            setText(R.string.strNewTextViewText)
             textSize = 18f
-        }
-        this.mainLayout.addView(txtvNewTextView)
+        })
 
     }
-
     //endregion
 }

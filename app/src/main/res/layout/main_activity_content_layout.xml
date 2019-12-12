@@ -53,6 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/strLogInText"
+        android:onClick="logIn"
         android:textAllCaps="false" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
