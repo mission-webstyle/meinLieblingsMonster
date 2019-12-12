@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var txtInputUserName: EditText
     private lateinit var txtUserPw: EditText
     private lateinit var btnLogIn: Button
-    private lateinit var btnGenerateYourSelfWithOutXmlDefintion: Button
+    private lateinit var btnGenerateYourSelfWithOutXmlDefinition: Button
     //endregion
 
     //region 2. Lebenszyklus
@@ -124,25 +124,25 @@ class MainActivity : AppCompatActivity() {
     private fun generateANewButtonWithOutAXmlDefiniton() {
 
         //Objekt selbst generieren
-        this.btnGenerateYourSelfWithOutXmlDefintion = Button(this)
+        this.btnGenerateYourSelfWithOutXmlDefinition = Button(this)
 
         //Attribute setzen
-        this.btnGenerateYourSelfWithOutXmlDefintion.setText(R.string.strGeneratedWithoutAXmlDefinition)
+        this.btnGenerateYourSelfWithOutXmlDefinition.setText(R.string.strGeneratedWithoutAXmlDefinition)
 
         //Anschreimodus textAllCaps deaktivieren
-        this.btnGenerateYourSelfWithOutXmlDefintion.isAllCaps = false;
+        this.btnGenerateYourSelfWithOutXmlDefinition.isAllCaps = false;
 
         /*
          * Breite des Buttons auf die Breites des Elternlayotus setzen,
          * Hoehe ist standardmaessig wrap_content
          */
-        this.btnGenerateYourSelfWithOutXmlDefintion.width = mainLayout.width
+        this.btnGenerateYourSelfWithOutXmlDefinition.width = mainLayout.width
 
         //Dem Layout die View hinzufuegen
-        this.mainLayout.addView(this.btnGenerateYourSelfWithOutXmlDefintion)
+        this.mainLayout.addView(this.btnGenerateYourSelfWithOutXmlDefinition)
 
         //Dem Button noch einen Listener geben der selbst weitere TextViews generiert
-        this.btnGenerateYourSelfWithOutXmlDefintion.setOnClickListener{
+        this.btnGenerateYourSelfWithOutXmlDefinition.setOnClickListener{
             this.addANewTextViewWithOutAXmlDefintion()
         }
     }
