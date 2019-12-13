@@ -1,5 +1,6 @@
 package de.rhistel.meinlieblingsmonster
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
@@ -119,6 +120,8 @@ class MainActivity : AppCompatActivity() {
                             R.string.strUserSpecificWelcomeMessage,
                             strUserName
                     )
+
+//                    this.startActivity(Intent(this,ChooseAMonsterActivity))
 
                 }else{
                     //UserMsg LogIn failed
