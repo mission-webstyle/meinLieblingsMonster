@@ -13,4 +13,8 @@
     <string name="strUserMessageCredentialsAreNotValid">User credentials are not valid</string>
     <string name="strMonsterActivityTitle">Choose a monster</string>
     <string name="strCurrentMonster">Current monster</string>
+
+    <string name="strMonsterOneText">Monster 1</string>
+    <string name="strMonsterTwoText">Monster 2</string>
+    <string name="strMonsterThreeText">Monster 3</string>
 </resources>

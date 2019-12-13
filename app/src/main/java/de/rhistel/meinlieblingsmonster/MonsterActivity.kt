@@ -1,7 +1,10 @@
 package de.rhistel.meinlieblingsmonster
 
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import kotlinx.android.synthetic.main.monster_activity_layout.*
 
 /**
  * Diese Activity ermoeglicht es dem
@@ -11,6 +14,11 @@ import android.os.Bundle
 class MonsterActivity : AppCompatActivity() {
 
     //region 0. Konstanten
+    companion object MonsterActivityConstants {
+        private const val FILE_NAME_MONSTER_ONE = "monster01.webp"
+        private const val FILE_NAME_MONSTER_TWO = "monster02.webp"
+        private const val FILE_NAME_MONSTER_THREE = "monster03.webp"
+    }
     //endregion
 
     //region 1. Lebenszyklus
@@ -23,8 +31,36 @@ class MonsterActivity : AppCompatActivity() {
     //endregion
 
     //region 2. Klickhandling
-    //endregion
 
+    /**
+     * Wenn einer der Auswahl-Buttons geklickt wird
+     * springt diese Methode an und laedt die passende Grafik
+     * zur Laufzeit
+     */
+    fun loadImage(v: View) {
+        when(v.id){
+            R.id.btnShowMonsterOne ->showImageFromAssetsInImageView(FILE_NAME_MONSTER_ONE)
+            R.id.btnShowMonsterTwo ->showImageFromAssetsInImageView(FILE_NAME_MONSTER_TWO)
+            R.id.btnShowMonsterThree ->showImageFromAssetsInImageView(FILE_NAME_MONSTER_THREE)
+        }
+    }
+
+    /**
+     * Liest ein Bild aus dem assets ordner aus und zeigt dieses auf
+     * der ImageView an
+     */
+    private fun showImageFromAssetsInImageView(fileNameMonsterOne: String) {
+        assets.open(fileNameMonsterOne).use {
+
+            //Laufzeitobjekt aus Bild geneireren
+            val drawableFromTheImageFile = Drawable.createFromStream(it,null)
+
+            //Bild anzeigen
+            this.imgvCurrentMonster.setImageDrawable(drawableFromTheImageFile)
+
+        }
+    }
+    //endregion
 
 
 }
