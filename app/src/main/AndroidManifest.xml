@@ -2,17 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.rhistel.meinlieblingsmonster">
 
-    <!--
-     Beschreibt den Aufbau der Applikation,
-     um genau zu sein:
-     - Welche Activities(GUIs) gibt es,
-     - Welche Services(Hintergrundoperationen) es gibt
-     - Welche Berechtigungen (Normal oder Gefaehrlich) werden genutzt
-     - Welche Hardwar wird genutzt
-     - Welche OS Interaktionen nehemen welche Bestandteile der App vor (ContentProvider)
-     -->
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MonsterActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/strMonsterActivityTitle">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
 
+        </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

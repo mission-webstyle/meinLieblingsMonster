@@ -121,7 +121,7 @@ class MainActivity : AppCompatActivity() {
                             strUserName
                     )
 
-//                    this.startActivity(Intent(this,ChooseAMonsterActivity))
+                    this.startActivity(Intent(this,MonsterActivity::class.java))
 
                 }else{
                     //UserMsg LogIn failed
