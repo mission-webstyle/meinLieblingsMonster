@@ -32,33 +32,30 @@
 
         <Button
             android:id="@+id/btnShowMonsterOne"
-            android:drawableStart="@drawable/ic_monster02"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:onClick="loadImage"
             android:text="@string/strMonsterOneText"
-            android:textAllCaps="false" />
+            style="@style/myMonsterButtonStyle" />
 
         <Button
             android:id="@+id/btnShowMonsterTwo"
-            android:drawableStart="@drawable/ic_monster02"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:onClick="loadImage"
             android:text="@string/strMonsterTwoText"
-            android:textAllCaps="false" />
+            style="@style/myMonsterButtonStyle"/>
 
         <Button
             android:id="@+id/btnShowMonsterThree"
-            android:drawableStart="@drawable/ic_monster02"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:onClick="loadImage"
             android:text="@string/strMonsterThreeText"
-            android:textAllCaps="false" />
+            style="@style/myMonsterButtonStyle"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.appcompat.widget.LinearLayoutCompat>
