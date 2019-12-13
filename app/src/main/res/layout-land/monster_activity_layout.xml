@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/defaultMarginPaddingValue"
+    android:paddingBottom="@dimen/defaultMarginPaddingValue"
+    android:paddingLeft="@dimen/defaultMarginPaddingValue"
+    android:paddingRight="@dimen/defaultMarginPaddingValue"
+    android:orientation="vertical"
+    tools:context=".MonsterActivity">
+
+
+    <ImageView
+        android:id="@+id/imgvCurrentMonster"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/strCurrentMonster"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/monster02" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linLayoutChooseAmonster"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnShowMonsterOne"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="loadImage"
+            android:text="@string/strMonsterOneText"
+            style="@style/myMonsterButtonStyle" />
+
+        <Button
+            android:id="@+id/btnShowMonsterTwo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="loadImage"
+            android:text="@string/strMonsterTwoText"
+            style="@style/myMonsterButtonStyle"/>
+
+        <Button
+            android:id="@+id/btnShowMonsterThree"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="loadImage"
+            android:text="@string/strMonsterThreeText"
+            style="@style/myMonsterButtonStyle"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.appcompat.widget.LinearLayoutCompat>
