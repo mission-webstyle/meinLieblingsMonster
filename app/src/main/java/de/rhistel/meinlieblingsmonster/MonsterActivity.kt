@@ -39,7 +39,7 @@ class MonsterActivity : AppCompatActivity() {
      */
     fun loadImage(v: View) {
         when (v.id) {
-            R.id.btnShowMonsterOne -> showImageFromDrawableResourceInImageView(R.drawable.monster02)
+            R.id.btnShowMonsterOne -> showImageFromDrawableResourceInImageView(R.drawable.monster01)
             R.id.btnShowMonsterTwo -> showImageFromAssetsInImageView(FILE_NAME_MONSTER_TWO)
             R.id.btnShowMonsterThree -> showImageFromAssetsInImageView(FILE_NAME_MONSTER_THREE)
         }
