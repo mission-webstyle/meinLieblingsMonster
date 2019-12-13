@@ -38,11 +38,19 @@ class MonsterActivity : AppCompatActivity() {
      * zur Laufzeit
      */
     fun loadImage(v: View) {
-        when(v.id){
-            R.id.btnShowMonsterOne ->showImageFromAssetsInImageView(FILE_NAME_MONSTER_ONE)
-            R.id.btnShowMonsterTwo ->showImageFromAssetsInImageView(FILE_NAME_MONSTER_TWO)
-            R.id.btnShowMonsterThree ->showImageFromAssetsInImageView(FILE_NAME_MONSTER_THREE)
+        when (v.id) {
+            R.id.btnShowMonsterOne -> showImageFromDrawableResourceInImageView(R.drawable.monster02)
+            R.id.btnShowMonsterTwo -> showImageFromAssetsInImageView(FILE_NAME_MONSTER_TWO)
+            R.id.btnShowMonsterThree -> showImageFromAssetsInImageView(FILE_NAME_MONSTER_THREE)
         }
+    }
+
+
+    /**
+     * Zeigt das Bild ueber die Recource Id an
+     */
+    private fun showImageFromDrawableResourceInImageView(resId: Int) {
+        imgvCurrentMonster.setImageResource(resId)
     }
 
     /**
@@ -53,7 +61,7 @@ class MonsterActivity : AppCompatActivity() {
         assets.open(fileNameMonsterOne).use {
 
             //Laufzeitobjekt aus Bild geneireren
-            val drawableFromTheImageFile = Drawable.createFromStream(it,null)
+            val drawableFromTheImageFile = Drawable.createFromStream(it, null)
 
             //Bild anzeigen
             this.imgvCurrentMonster.setImageDrawable(drawableFromTheImageFile)
