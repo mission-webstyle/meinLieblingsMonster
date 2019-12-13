@@ -9,7 +9,7 @@
     <string name="strUserMessageCredentialsAreNotValid">Anmeldedaten sind falsch</string>
     <string name="strUserMessageFillInUserNameAndPw">Bitte füllen Sie Benutzername und Passwort aus</string>
     <string name="strUserMessageYouAreLoggedInNow">Sie sind nun angemeldet</string>
-    <string name="strUserNameHint">Ihr Benutztername</string>
+    <string name="strUserNameHint">Ihr Benutzername</string>
     <string name="strUserPwHint">Ihr Passwort</string>
     <string name="strUserSpecificWelcomeMessage">Willkommen %s</string>
 </resources>

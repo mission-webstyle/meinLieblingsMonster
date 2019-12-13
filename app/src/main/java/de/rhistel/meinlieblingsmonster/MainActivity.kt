@@ -154,10 +154,13 @@ class MainActivity : AppCompatActivity() {
     /**
      * Zeigt eine bestimmte Usernachricht
      * auf der Snackbar an.
+     * Die Snackbar kann auch mit setAction einen klickbaren
+     * Button bekommen auf dessen Klick mit einem Listeneraufruf reagiert werden kann
      */
-    private fun showUserMessageWithSnackbar(v: View, @StringRes stringResourceId:Int){
-        Snackbar.make(v,stringResourceId,Snackbar.LENGTH_SHORT).show()
+    private fun showUserMessageWithSnackbar(v: View, @StringRes stringResourceId:Int) {
+        Snackbar.make(v, stringResourceId, Snackbar.LENGTH_LONG).show()
     }
+
     //endregion
 
     //region 5. Neue Views generieren

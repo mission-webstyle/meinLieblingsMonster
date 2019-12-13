@@ -11,4 +11,6 @@
     <string name="strNewTextViewText">This is a new TextView because you clicked the new Button.</string>
     <string name="strUserMessageYouAreLoggedInNow">You are logged in now</string>
     <string name="strUserMessageCredentialsAreNotValid">User credentials are not valid</string>
+    <string name="strSnackbarActionText">Snackbar action text</string>
+    <string name="strANewToastText">A new toast text+</string>
 </resources>
